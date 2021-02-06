@@ -12,7 +12,7 @@ func autocurr(results []int32, scale *int, inputData []int16, inputDataSize int,
 	corr64 := inner_prod16_aligned_64(inputData, inputData, inputDataSize)
 
 	/* deal with all-zero input data */
-	corr64 += 1
+	corr64++
 
 	lz := CLZ64(corr64)
 

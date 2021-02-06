@@ -43,3 +43,23 @@ func SAT16(a int16) int16 {
 		return a
 	}
 }
+
+func RAND(seed int32) int32 {
+	return MLA_ovflw(907633515, (seed), 196314165)
+}
+
+func MLA_ovflw(a32, b32, c32 int32) int32 {
+	return ADD32_ovflw(a32, uint32(b32)*uint32(c32))
+}
+
+func ADD32_ovflw(a int32, b uint32) int32 {
+	return int32(uint32(a) + uint32(b))
+}
+
+func RSHIFT(a, shift int) int {
+	return RSHIFT32(a, shift)
+}
+
+func RSHIFT32(a, shift int) int {
+	return a >> shift
+}
